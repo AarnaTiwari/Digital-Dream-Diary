@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Dream Diary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dream-entry {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            font-size: 24px;
+        }
+
+        .dream-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Digital Dream Diary</h1>
+    <p>Document your dreams in real-time!</p>
+</header>
+
+<div class="container">
+    <div class="dream-form">
+        <h2>Share Your Dream</h2>
+        <form id="dreamForm">
+            <label for="dreamTitle">Dream Title:</label>
+            <input type="text" id="dreamTitle" name="dreamTitle" required>
+
+            <label for="dreamDescription">Dream Description:</label>
+            <textarea id="dreamDescription" name="dreamDescription" rows="4" required></textarea>
+
+            <button type="submit">Submit Dream</button>
+        </form>
+    </div>
+
+    <div id="dreamList">
+        <h2>Your Dreams</h2>
+        <!-- Dreams will be displayed here -->
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Digital Dream Diary. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.getElementById('dreamForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let title = document.getElementById('dreamTitle').value;
+        let description = document.getElementById('dreamDescription').value;
+
+        let dreamEntry = document.createElement('div');
+        dreamEntry.classList.add('dream-entry');
+
+        let dreamTitle = document.createElement('h3');
+        dreamTitle.textContent = title;
+
+        let dreamDesc = document.createElement('p');
+        dreamDesc.textContent = description;
+
+        dreamEntry.appendChild(dreamTitle);
+        dreamEntry.appendChild(dreamDesc);
+
+        document.getElementById('dreamList').appendChild(dreamEntry);
+
+        // Clear the form
+        document.getElementById('dreamForm').reset();
+    });
+</script>
+
+</body>
+</html>
+
+
+
